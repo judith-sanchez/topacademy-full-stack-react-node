@@ -13,3 +13,9 @@ On your repository:
 
 - Wait for them to create the pull request
 - Review the pull request and merge it into master/main
+
+### Here's proof that I've done it before 👻
+
+https://github.com/judithsanchez/murder-mystery
+
+![Github Project](final-project.png)
