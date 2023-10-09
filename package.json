@@ -1,0 +1,22 @@
+{
+  "name": "topacademy-full-stack-react-node",
+  "version": "1.0.0",
+  "description": "## Weeks 1-6",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judith-sanchez/topacademy-full-stack-react-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/judith-sanchez/topacademy-full-stack-react-node/issues"
+  },
+  "homepage": "https://github.com/judith-sanchez/topacademy-full-stack-react-node#readme",
+  "devDependencies": {
+    "prettier": "3.0.3"
+  }
+}
