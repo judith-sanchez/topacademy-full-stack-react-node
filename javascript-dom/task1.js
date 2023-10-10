@@ -1,4 +1,4 @@
-// Task 1 
+// Task 1
 
 // Create a page where you can insert multiple countdowns
 
@@ -15,7 +15,6 @@
 // Each countdown inserted must have a “Cancel” button. If the user presses this button, the countdown must be removed from the screen
 
 // You should use a class to handle the countdowns
-
 
 // // this is an example
 // class Countdown {

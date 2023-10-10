@@ -20,7 +20,7 @@ Call this function and display the result in the browser’s console.
 Refactor the code above so that the conversion logic isn’t duplicated between the two functions. */
 
 function pingPong() {
-	for (let num = 1; num <= 35; num += 1) {
+	for (let num = 1; num <= 100; num += 1) {
 		if (num % 5 === 0 && num % 7 === 0) {
 			console.log('PingPong');
 		} else if (num % 7 === 0) {
