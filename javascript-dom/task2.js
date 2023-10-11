@@ -141,7 +141,7 @@ function newRound() {
 function guessCity(str) {
 	newGame.guess(str);
 
-	if (newGame.attempts === 1) {
+	if (newGame.attempts === 10) {
 		const newRound = document.getElementById('newRound');
 		newRound.disabled = true;
 
