@@ -1,4 +1,4 @@
-// ask 5
+// Task 5
 // Create the JS game Guess the Magic Number:
 
 // Generate a random number between 1 and 100 when the page loads;
@@ -25,8 +25,38 @@
 
 // The game ends;
 
-// The message You lost! The magic number was <value>. will be displayed.
+// The message You lost! The magic number was <value> will be displayed.
 
 // The user can replay by reloading the page.
 
 // Create an HTML page and run the JS code.
+
+const magicNumber = Math.floor(Math.random() * 100) + 1;
+
+function guessMagicNumber(tries) {
+	if (tries === 0) {
+		alert(`You lost! The magic number was ${magicNumber}.`);
+		location.reload();
+	} else {
+		const userInput = prompt(`Guess the magic number! Tries left: ${tries}`);
+
+		const userGuess = parseInt(userInput);
+
+		if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+			alert(`Invalid input. You have ${tries - 1} tries left.`);
+			guessMagicNumber(tries - 1);
+		} else if (userGuess === magicNumber) {
+			alert(`You won in ${7 - tries + 1} tries!`);
+		} else {
+			const message = userGuess < magicNumber ? 'greater' : 'lesser';
+			alert(
+				`The magic number is ${message} than ${userGuess}. You have ${
+					tries - 1
+				} tries left.`,
+			);
+			guessMagicNumber(tries - 1);
+		}
+	}
+}
+
+guessMagicNumber(7);
