@@ -54,7 +54,7 @@ class Game {
 		this.correctAnswers = 0;
 		this.attempts = 0;
 		this.redHerrings = null;
-		this.ranking = [];
+		// this.ranking = [];
 	}
 
 	startNewGame(data) {
@@ -106,8 +106,10 @@ class Game {
 	}
 
 	updateRanking(str) {
-		this.ranking.push({name: str, points: this.correctAnswers});
-		localStorage.setItem('ranking', JSON.stringify(this.ranking));
+		const data = {name: str, points: this.correctAnswers};
+		const existingData = JSON.parse(localStorage.getItem('ranking')) || [];
+		existingData.push(data);
+		localStorage.setItem('ranking', JSON.stringify(existingData));
 	}
 }
 
@@ -116,8 +118,9 @@ function createNewGame() {
 	newGame.startNewGame(data);
 	newGame.getRandomCountry();
 	newGame.getRandomRedHaerrings();
-	console.log(newGame);
+	renderRanking();
 }
+
 function newRound() {
 	newGame.getRandomCountry();
 	newGame.getRandomRedHaerrings();
@@ -139,34 +142,40 @@ function newRound() {
 }
 
 function guessCity(str) {
-	newGame.guess(str);
+	const gameLimit = 10;
+	const button = document.getElementById(str);
 
-	if (newGame.attempts === 10) {
-		const newRound = document.getElementById('newRound');
-		newRound.disabled = true;
-
-		const rankingList = document.getElementById('rankingList');
-
-		const addNameForm = document.createElement('form');
-
-		const name = document.createElement('input');
-		name.placeholder = 'Enter your name';
-
-		const sendButton = document.createElement('button');
-		sendButton.textContent = 'Send';
-
-		rankingList.appendChild(addNameForm);
-		addNameForm.appendChild(name);
-		addNameForm.appendChild(sendButton);
-
-		addNameForm.addEventListener('submit', function (e) {
-			e.preventDefault();
-			const playerName = name.value.trim();
-			if (playerName) {
-				newGame.updateRanking(playerName, newGame.correctAnswers);
-			}
-
-			name.value = '';
-		});
+	if (newGame.guess(str)) {
+		button.style.borderColor = 'green';
+	} else {
+		button.style.borderColor = 'red';
 	}
+
+	setTimeout(() => {
+		if (newGame.attempts === gameLimit) {
+			const newRound = document.getElementById('newRound');
+			const name = prompt("What's your name?");
+			if (name) {
+				newGame.updateRanking(name);
+				console.log(newGame.ranking);
+			}
+			createNewGame();
+			return;
+		} else {
+			newRound();
+		}
+	}, '1000');
 }
+
+function renderRanking() {
+	const rankingList = document.getElementById('rankingList');
+	const rankingData = JSON.parse(localStorage.getItem('ranking')) || [];
+	rankingList.innerHTML = '<h3>Ranking:</h3>';
+	rankingData.forEach(item => {
+		const listItem = document.createElement('p');
+		listItem.textContent = `${item.name}: ${item.points} points`;
+		rankingList.appendChild(listItem);
+	});
+}
+
+renderRanking();
