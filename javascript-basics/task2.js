@@ -66,9 +66,9 @@ function pingPongRefractored(num) {
 
 // pingPongRefractored(1);
 
-let str = '';
-
-function pingPongStringRefractored(num) {
+// let str = '';
+// Better than a global variable
+function pingPongStringRefractored(num, str = '') {
 	if (num > 100) console.log(str);
 
 	// I can't make the function return when it reaches this condition. Why? :(
@@ -78,7 +78,9 @@ function pingPongStringRefractored(num) {
 	else if (num % 7 === 0) str += 'Pong';
 	else if (num % 5 === 0) str += 'Ping';
 	else str += num;
-	pingPongStringRefractored(num + 1);
+	// Added return
+	// I forgot to add str as the second parameter
+	return pingPongStringRefractored(num + 1, str);
 }
 
 console.log(pingPongStringRefractored(1));

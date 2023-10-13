@@ -142,7 +142,7 @@ function newRound() {
 }
 
 function guessCity(str) {
-	const gameLimit = 10;
+	const gameLimit = 3;
 	const button = document.getElementById(str);
 
 	if (newGame.guess(str)) {

@@ -15,18 +15,17 @@ Create an HTML page and load the JS file.
 
 Call the function for different sentences and log the results in the browser’s console. */
 
-
-
 function encrypt(sentence) {
-let encryptedSentence = [];
+	// let encryptedSentence = [];
 
-    sentence.split(" ").map(word => word.length % 3 === 0?  encryptedSentence.push(0) : encryptedSentence.push(1));
+	// sentence.split(" ").map(word => word.length % 3 === 0?  encryptedSentence.push(0) : encryptedSentence.push(1));
+	return sentence.split(' ').map(word => (word.length % 3 === 0 ? 0 : 1));
+	// .join('');
 
-
- return encryptedSentence.join("");
+	//  return encryptedSentence.join("");
 }
 
-console.log(encrypt("Hola Patrick!"));
-console.log(encrypt("How are you?"));
-console.log(encrypt("I love coffee too"));
-console.log(encrypt("I am not sure if the other Patryk likes coffee"));
+console.log(encrypt('Hola Patrick!'));
+console.log(encrypt('How are you?'));
+console.log(encrypt('I love coffee too'));
+console.log(encrypt('I am not sure if the other Patryk likes coffee'));
