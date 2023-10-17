@@ -13,4 +13,4 @@ nyancat
 
 npm i -g yodasay
 yodathink Node.js is cool
-![Alt text](yoda.png)
+![Alt text](yoda.png)clear

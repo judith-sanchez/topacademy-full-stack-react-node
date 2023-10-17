@@ -8,3 +8,13 @@
 // Now export them as a package and publish them on NPM
 
 // You should be able to reuse your library in a different project
+
+// https://www.npmjs.com/package/color-flux-wizard
+
+// npm i color-flux-wizard
+
+// color-flux-wizard "#0000FF"
+
+// color-flux-wizard "rgb(0, 255, 0)"
+
+// color-flux-wizard "rgba(128, 0, 128, 0.5)"

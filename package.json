@@ -18,5 +18,8 @@
   "homepage": "https://github.com/judith-sanchez/topacademy-full-stack-react-node#readme",
   "devDependencies": {
     "prettier": "3.0.3"
+  },
+  "dependencies": {
+    "color-flux-wizard": "^1.0.0"
   }
 }
