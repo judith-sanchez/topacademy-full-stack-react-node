@@ -32,17 +32,17 @@
 
 // You can use the following recording as a reference for the main functionality.
 
-// Function to start a timer with a random duration
-
-// Get references to HTML elements
 const startButton = document.getElementById('startButton');
 const timersDiv = document.getElementById('timers');
 
-// Initialize variables
+// Cpunter that limits how many timers can be running at once
 let runningTimers = 0;
 
-// Function to start a timer
+// Could it also be with async?
+
 function startTimer(seconds) {
+	// When the function startTimer() gets called it returns the promise that-> "in x seconds I will return a string"
+	// On this case, the passing of the seconds is the condition that needs to be eet in order to the promise to resolve succesfully
 	return new Promise(resolve => {
 		setTimeout(() => {
 			resolve(`Done in ${seconds} seconds!`);
@@ -50,7 +50,7 @@ function startTimer(seconds) {
 	});
 }
 
-// Function to update the button label
+// Keeps track of the counter
 function updateButtonLabel() {
 	startButton.textContent = `Start Timer (${runningTimers}/3)`;
 	if (runningTimers === 3) {
@@ -60,13 +60,14 @@ function updateButtonLabel() {
 	}
 }
 
-// Event listener for the button
+// Using async to be able to use await later
 startButton.addEventListener('click', async () => {
 	if (runningTimers < 3) {
 		runningTimers++;
 		updateButtonLabel();
 
 		const randomDuration = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
+		// It needs to wait for the promise mentioned before to be resolved on x seconds in order to continue with the following line of code
 		const result = await startTimer(randomDuration);
 
 		const timerResultDiv = document.createElement('div');
