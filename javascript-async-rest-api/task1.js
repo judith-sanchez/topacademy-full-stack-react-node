@@ -31,3 +31,49 @@
 // Use your creativity to add nice styling to the application.
 
 // You can use the following recording as a reference for the main functionality.
+
+// Function to start a timer with a random duration
+
+// Get references to HTML elements
+const startButton = document.getElementById('startButton');
+const timersDiv = document.getElementById('timers');
+
+// Initialize variables
+let runningTimers = 0;
+
+// Function to start a timer
+function startTimer(seconds) {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(`Done in ${seconds} seconds!`);
+		}, seconds * 1000);
+	});
+}
+
+// Function to update the button label
+function updateButtonLabel() {
+	startButton.textContent = `Start Timer (${runningTimers}/3)`;
+	if (runningTimers === 3) {
+		startButton.disabled = true;
+	} else {
+		startButton.disabled = false;
+	}
+}
+
+// Event listener for the button
+startButton.addEventListener('click', async () => {
+	if (runningTimers < 3) {
+		runningTimers++;
+		updateButtonLabel();
+
+		const randomDuration = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
+		const result = await startTimer(randomDuration);
+
+		const timerResultDiv = document.createElement('div');
+		timerResultDiv.textContent = result;
+		timersDiv.appendChild(timerResultDiv);
+
+		runningTimers--;
+		updateButtonLabel();
+	}
+});
