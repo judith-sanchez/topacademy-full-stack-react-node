@@ -1,22 +1,94 @@
 {
-	"tasks": [
-		{
-			"id": 1,
-			"title": "Buy milk",
-			"description": "I need it, my cat needs it.",
-			"done": false
-		},
-		{
-			"id": 2,
-			"title": "Clean the house",
-			"description": "Vacuum the floors and clean the bedroom",
-			"done": true
-		},
-		{
-			"id": 3,
-			"title": "Do laundry",
-			"description": "Wash and fold the clothes",
-			"done": false
-		}
-	]
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Buy milk",
+      "description": "I need it, my cat needs it.",
+      "done": false
+    },
+    {
+      "id": 2,
+      "title": "Clean the house",
+      "description": "Vacuum the floors and clean the bedroom",
+      "done": true
+    },
+    {
+      "id": 3,
+      "title": "Do laundry",
+      "description": "Wash and fold the clothes",
+      "done": false
+    },
+    {
+      "id": 4,
+      "title": "Buy coffee",
+      "description": "I need it.",
+      "done": false
+    },
+    {
+      "id": 5,
+      "title": "Clean house",
+      "description": "Because... bugs!",
+      "done": false
+    },
+    {
+      "id": 6,
+      "title": "Teach a Snail to Speedrun",
+      "description": "Challenge a snail to a speedrun competition and see who wins.",
+      "done": false
+    },
+    {
+      "id": 7,
+      "title": "Create a Rap About Office Supplies",
+      "description": "Compose a rap song about staplers, paperclips, and sticky notes.",
+      "done": false
+    },
+    {
+      "id": 8,
+      "title": "Write a Love Letter to Your Favorite Pizza",
+      "description": "Express your affection for pizza in a heartfelt love letter.",
+      "done": false
+    },
+    {
+      "id": 9,
+      "title": "Wear Socks on Your Hands for a Day",
+      "description": "Experience life with socks on your hands instead of your feet.",
+      "done": false
+    },
+    {
+      "id": 10,
+      "title": "Start a Conversation with a Houseplant",
+      "description": "Engage in a deep conversation with your houseplant.",
+      "done": false
+    },
+    {
+      "id": 11,
+      "title": "Try to Lick Your Elbow",
+      "description": "Attempt the elusive feat of licking your own elbow.",
+      "done": false
+    },
+    {
+      "id": 12,
+      "title": "Build a Fort with Pillows and Blankets",
+      "description": "Construct an epic fort in your living room.",
+      "done": false
+    },
+    {
+      "id": 13,
+      "title": "Walk Backwards for an Entire Day",
+      "description": "Navigate through your day while walking in reverse.",
+      "done": false
+    },
+    {
+      "id": 14,
+      "title": "Have a Pajama Day at the Office",
+      "description": "Show up to work in your coziest pajamas and act like it's completely normal.",
+      "done": false
+    },
+    {
+      "id": 15,
+      "title": "Figure out Node",
+      "description": "Because node...",
+      "done": false
+    }
+  ]
 }
