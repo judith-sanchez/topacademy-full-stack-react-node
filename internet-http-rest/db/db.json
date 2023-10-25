@@ -83,12 +83,6 @@
       "title": "Have a Pajama Day at the Office",
       "description": "Show up to work in your coziest pajamas and act like it's completely normal.",
       "done": false
-    },
-    {
-      "id": 15,
-      "title": "Figure out Node",
-      "description": "Because node...",
-      "done": false
     }
   ]
 }

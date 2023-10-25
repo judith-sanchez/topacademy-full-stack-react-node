@@ -115,12 +115,21 @@ const renderTasks = async () => {
 		const description = document.createElement('p');
 		description.textContent = task.description;
 
-		const status = document.createElement('p');
-		status.textContent = task.done ? 'done' : 'to do';
+		// const status = document.createElement('p');
+		// status.textContent = task.done ? 'done' : 'to do';
+
+		const updateButton = document.createElement('button');
+		updateButton.textContent = task.done ? '✅' : '❌';
+		updateButton.addEventListener('click', () => updateTask(task.id));
+		taskDiv.appendChild(updateButton);
+
+		const deleteButton = document.createElement('button');
+		deleteButton.textContent = '🗑️';
+		deleteButton.addEventListener('click', () => deleteTask(task.id));
+		taskDiv.appendChild(deleteButton);
 
 		taskDiv.appendChild(h2);
 		taskDiv.appendChild(description);
-		taskDiv.appendChild(status);
 
 		container.appendChild(taskDiv);
 	});
