@@ -109,27 +109,27 @@ const renderTasks = async () => {
 		const taskDiv = document.createElement('div');
 		taskDiv.classList.add('task');
 
-		const h2 = document.createElement('h2');
-		h2.textContent = task.title;
-
-		const description = document.createElement('p');
-		description.textContent = task.description;
-
-		// const status = document.createElement('p');
-		// status.textContent = task.done ? 'done' : 'to do';
-
-		const updateButton = document.createElement('button');
-		updateButton.textContent = task.done ? '✅' : '❌';
-		updateButton.addEventListener('click', () => updateTask(task.id));
-		taskDiv.appendChild(updateButton);
-
 		const deleteButton = document.createElement('button');
 		deleteButton.textContent = '🗑️';
+		deleteButton.classList.add('delete');
+
 		deleteButton.addEventListener('click', () => deleteTask(task.id));
 		taskDiv.appendChild(deleteButton);
 
+		const h2 = document.createElement('h2');
+		h2.textContent = task.title;
 		taskDiv.appendChild(h2);
+
+		const description = document.createElement('p');
+		description.textContent = task.description;
 		taskDiv.appendChild(description);
+
+		const updateButton = document.createElement('button');
+		updateButton.textContent = task.done ? '✅' : '✔️';
+		updateButton.classList.add('update');
+
+		updateButton.addEventListener('click', () => updateTask(task.id));
+		taskDiv.appendChild(updateButton);
 
 		container.appendChild(taskDiv);
 	});

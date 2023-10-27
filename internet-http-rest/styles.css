@@ -1,23 +1,83 @@
-.tasks {
-	width: 400px;
-	margin: 0 auto;
+:root {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body {
+	margin: auto;
+	width: 40rem;
+}
+
+h1 {
+	font-size: 3.2rem;
+}
+
+form {
+	display: flex;
+	flex-flow: column nowrap;
+	margin-bottom: 2rem;
+}
+
+form input {
+	height: 3.2rem;
+	margin-bottom: 1.5rem;
+}
+
+form textarea {
+	height: 12rem;
+	margin-bottom: 1.5rem;
+}
+
+form button {
+	align-self: center;
+	border: none;
+	color: white;
+	cursor: pointer;
+	height: 5rem;
+	background-color: darkcyan;
+	width: 10rem;
 }
 
 .task {
-	border: 1px solid #ddd;
-	padding: 10px;
-	margin: 10px 0;
-	background-color: #f9f9f9;
-	border-radius: 5px;
+	border: 0.1rem solid #ddd;
+	padding: 1rem;
+	margin: 1rem 0;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 }
 
 .task h2 {
-	font-size: 20px;
+	font-size: 2rem;
 	margin: 0;
+	text-align: center;
+	padding: 1rem 0;
 }
 
 .task p {
-	margin: 5px 0;
+	margin: 0.5rem 0;
+	text-align: center;
+	padding: 0 1rem;
+}
+
+.delete,
+.update {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 1.5em;
+	padding: 0.5rem;
+}
+
+.delete {
+	align-self: self-start;
+}
+
+.update {
+	align-self: self-end;
 }
