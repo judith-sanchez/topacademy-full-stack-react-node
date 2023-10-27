@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	--add-task-color: darkcyan;
 }
 
 body {
@@ -38,7 +39,7 @@ form button {
 	color: white;
 	cursor: pointer;
 	height: 5rem;
-	background-color: darkcyan;
+	background-color: var(--add-task-color);
 	width: 10rem;
 }
 
