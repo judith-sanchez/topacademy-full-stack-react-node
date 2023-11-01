@@ -1,5 +1,3 @@
-/* 
-
 // Import the required Node.js modules
 // There a more node modules!!!
 const http = require('http');
@@ -21,61 +19,3 @@ server.listen(port, () => {
 });
 
 // In order to run this server I need to enter on the terminal "node server.js"
-
- */
-
-/* 
-
-// Import express
-const express = require('express');
-const app = express();
-const port = 8089;
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-
-// Define the route with the desired response
-app.get('/', (require, response) => {
-	response.send('Hello Toptal!');
-});
-
-// Start express server
-app.listen(port, () => {
-	console.log(`Express server is running on http://localhost:${port}`);
-});
-
-
-// node server.js
-// http://localhost:8089/
-
-*/
-
-const express = require('express');
-const app = express();
-const port = 8089;
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-
-const phoneNumbers = [];
-
-app.post('/addPhoneNumbers', (req, res) => {
-	const phoneNumber = req.body.phoneNumber;
-	if (!phoneNumber) {
-		return res.status(400).json({error: 'Phone number is required'});
-	}
-	phoneNumbers.push(phoneNumber);
-	res.status(200).json({message: 'Phone number was added successfully'});
-});
-
-app.get('/getPhoneNumberList', (req, res) => {
-	res.json(phoneNumbers);
-});
-
-app.get('/', (req, res) => {
-	res.send('Hello Toptal!');
-});
-
-app.listen(port, () => {
-	console.log(`Express server is running on http://localhost:${port}`);
-});
