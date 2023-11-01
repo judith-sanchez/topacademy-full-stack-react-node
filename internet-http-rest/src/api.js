@@ -1,6 +1,6 @@
 const URL = 'http://localhost:3000/tasks';
 
-async function getAllTasks(url) {
+export async function getAllTasks(url) {
 	const res = await fetch(url);
 	const tasks = await res.json();
 	console.log(tasks);

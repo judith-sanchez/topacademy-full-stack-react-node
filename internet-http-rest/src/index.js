@@ -2,12 +2,14 @@ const URL = 'http://localhost:3000/tasks';
 
 // HTTP requet handlres
 
-async function getAllTasks(url) {
-	const res = await fetch(url);
-	const tasks = await res.json();
-	console.log(tasks);
-	return tasks;
-}
+import {getAllTasks} from './api.js';
+
+// async function getAllTasks(url) {
+// 	const res = await fetch(url);
+// 	const tasks = await res.json();
+// 	console.log(tasks);
+// 	return tasks;
+// }
 
 // Just to auto-increment the id for the new tasks and not have a global variable floating around :P
 async function getHighestTaskId() {
@@ -69,7 +71,7 @@ async function deleteTask(id) {
 	}
 }
 
-async function updateTask(id) {
+async function toggleTaskStatus(id) {
 	const task = await getTaskById(id);
 
 	if (task) {
@@ -98,6 +100,37 @@ async function updateTask(id) {
 	}
 }
 
+///// Not sure about this one
+
+async function updateTask(id, title, description) {
+	const updateURL = `${URL}/${id}`;
+
+	const task = await getTaskById(id);
+
+	if (task) {
+		task.title = title;
+		task.description = description;
+
+		const response = await fetch(updateURL, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(task),
+		});
+
+		if (response.ok) {
+			console.log(
+				`Task with ID ${id} has been updated. New title: ${title}, New description: ${description}.`,
+			);
+		} else {
+			console.error('Failed to update the task.');
+		}
+	} else {
+		console.log(`No task found with ID ${id}.`);
+	}
+}
+
 //////////////////////////////////////////////
 
 const container = document.querySelector('.tasks');
@@ -106,7 +139,8 @@ const renderTasks = async () => {
 	const tasks = await getAllTasks(URL);
 
 	tasks.forEach(task => {
-		const taskDiv = document.createElement('div');
+		const taskDiv = document.createElement('template');
+
 		taskDiv.classList.add('task');
 
 		const deleteButton = document.createElement('button');
@@ -128,7 +162,7 @@ const renderTasks = async () => {
 		updateButton.textContent = task.done ? '✅' : '✔️';
 		updateButton.classList.add('update');
 
-		updateButton.addEventListener('click', () => updateTask(task.id));
+		updateButton.addEventListener('click', () => toggleTaskStatus(task.id));
 		taskDiv.appendChild(updateButton);
 
 		container.appendChild(taskDiv);

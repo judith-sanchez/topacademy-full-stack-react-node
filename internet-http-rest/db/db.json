@@ -22,7 +22,7 @@
       "id": 5,
       "title": "Clean house",
       "description": "Because... bugs!",
-      "done": false
+      "done": true
     },
     {
       "id": 6,
@@ -76,6 +76,12 @@
       "id": 14,
       "title": "Have a Pajama Day at the Office",
       "description": "Show up to work in your coziest pajamas and act like it's completely normal.",
+      "done": false
+    },
+    {
+      "id": 15,
+      "title": "call alex",
+      "description": "just for fun",
       "done": false
     }
   ]
