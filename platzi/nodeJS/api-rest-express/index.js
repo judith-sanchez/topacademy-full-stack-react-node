@@ -4,6 +4,7 @@
 // The middlewares should be called after the router
 
 const express = require('express');
+const cors = require('cors');
 const routerApi = require('./routes/index.js');
 
 const {
@@ -17,6 +18,18 @@ const port = 3000;
 
 // Middleware to receive json on the request
 app.use(express.json());
+
+const whiteList = ['http://localhost:3000'];
+const options = {
+  origin: (origin, callbacks) => {
+    if (whiteList.includes(origin)) {
+      callbacks(null, true);
+    } else {
+      callbacks(new Error('Not permitted'));
+    }
+  },
+};
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello Toptal!');
