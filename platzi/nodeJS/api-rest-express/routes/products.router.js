@@ -1,22 +1,11 @@
 const express = require('express');
-const { faker } = require('@faker-js/faker');
-
+const ProductService = require('../services/product.service.js');
 const router = express.Router();
+const service = new ProductService();
 
 // http://localhost:3000?size=1
 router.get('/', (req, res) => {
-  const products = [];
-  const { size } = req.query;
-  const limit = size || 10;
-
-  for (let i = 0; i < limit; i += 1) {
-    products.push({
-      name: faker.commerce.productName(),
-      price: parseInt(faker.commerce.price(), 10),
-      image: faker.image.url(),
-    });
-  }
-
+  const products = service.find();
   res.json(products);
 });
 
@@ -28,12 +17,19 @@ router.get('/filter', (req, res) => {
 router.get('/:id', (req, res) => {
   // const productId = req.params.id;
   const { id } = req.params; // This syntax is saying that from all the properties of the object I just want id
-  res.json({ id, name: 'test product', price: 0 });
+  // All parameters are sent as strings
+  if (id === '999') {
+    res.status(404).json({
+      message: 'Not Found',
+    });
+  } else {
+    res.status(200).json({ id, name: 'test product', price: 0 });
+  }
 });
 
 router.post('/', (req, res) => {
   const body = req.body;
-  res.json({
+  res.status(201).json({
     message: 'New products created',
     data: body,
   });
