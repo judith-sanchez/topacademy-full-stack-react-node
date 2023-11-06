@@ -31,4 +31,29 @@ router.get('/:id', (req, res) => {
   res.json({ id, name: 'test product', price: 0 });
 });
 
-module.exports = router;
+router.post('/', (req, res) => {
+  const body = req.body;
+  res.json({
+    message: 'New products created',
+    data: body,
+  });
+});
+
+router.patch('/:id', (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  res.json({
+    message: 'Product updated successfully',
+    data: body,
+    id,
+  });
+});
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    message: 'Product deleted successfully',
+    id,
+  });
+});
+http: module.exports = router;

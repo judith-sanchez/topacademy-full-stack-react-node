@@ -9,20 +9,16 @@ const routerApi = require('./routes/index.js');
 const app = express();
 const port = 3000;
 
+// Middleware to receive json on the request
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Hello Toptal!');
 });
 
-// app.get('/categories/:categoryId/products/:productId', (req, res) => {
-//   const { categoryId, productId } = req.params;
-//   res.json({
-//     categoryId,
-//     productId,
-//   });
-// });
+routerApi(app);
 
 app.listen(port, () => {
   console.log(`My port is ${port}`);
 });
-
 routerApi(app);
