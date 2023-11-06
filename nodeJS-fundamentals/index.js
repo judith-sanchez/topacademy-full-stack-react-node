@@ -24,9 +24,17 @@ class DietaryPlan {
 			{name: 'Skip', percentage: 5},
 		];
 
+		this.sauces = [
+			{name: 'Mayo', percentage: 35},
+			{name: 'Soy Sauce', percentage: 35},
+			{name: 'Mustard', percentage: 15},
+			{name: 'Skip', percentage: 5},
+		];
+
 		this.forbiddenCombinations = [
 			['Skip', 'Skip', 'Skip'],
 			['Fish', 'Milk'],
+			['Potatoes', 'Soy Sauce'],
 		];
 
 		this.dailyPlan = this.generateDietaryPlan();
@@ -59,6 +67,22 @@ class DietaryPlan {
 		return true;
 	}
 
+	checkSauces(dayPlan) {
+		if (!dayPlan.some(meal => meal.sauce === 'Skip')) {
+			dayPlan[Math.floor(Math.random() * 2)].sauce = 'Skip';
+		}
+
+		if (dayPlan.every(meal => meal.sauce === 'Skip')) {
+			dayPlan[Math.floor(Math.random() * 2)].sauce = 'Soy Sauce';
+		}
+
+		for (let i = 0; i < dayPlan.length; i += 1) {
+			if (dayPlan[i].sauce === 'Skip' && dayPlan[i + 1].sauce === 'Skip') {
+				day
+			}
+		}
+	}
+
 	generateDietaryPlan() {
 		const plan = [];
 
@@ -66,24 +90,29 @@ class DietaryPlan {
 			const dailyMeals = [];
 
 			for (let meal = 1; meal <= this.mealsPerDay; meal++) {
-				let mainDish, sideDish, beverage;
+				let mainDish, sideDish, beverage, sauce;
 
 				do {
 					mainDish = this.generateRandomDish(this.mainDishes);
 					sideDish = this.generateRandomDish(this.sideDishes);
 					beverage = this.generateRandomDish(this.beverages);
-				} while (!this.isValidCombination([mainDish, sideDish, beverage]));
+					sauce = this.generateRandomDish(this.sauces);
+				} while (
+					!this.isValidCombination([mainDish, sideDish, beverage, sauce])
+				);
 
 				dailyMeals.push({
 					mainDish,
 					sideDish,
 					beverage,
+					sauce,
 				});
 			}
+			this.checkSauces(dailyMeals);
 
 			plan.push({day, meals: dailyMeals});
 		}
-
+		// console.log(JSON.stringify(plan[0]));
 		return plan;
 	}
 
@@ -94,6 +123,7 @@ class DietaryPlan {
 				console.log(`Meal ${index + 1}:`);
 				console.log(`Main Dish: ${meal.mainDish}`);
 				console.log(`Side Dish: ${meal.sideDish}`);
+				console.log(`Sauce: ${meal.sauce}`);
 				console.log(`Beverage: ${meal.beverage}`);
 				console.log('---');
 			});
