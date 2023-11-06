@@ -1,5 +1,4 @@
-// npm start -> start the server
-// npm run dev -> see the changes in real time
+// npm run dev -> see the changes in real time (-.- I DON'T NEED npm start at the same time)
 // `${URL}/endpoint/id`
 // Specific should go before dynamic
 

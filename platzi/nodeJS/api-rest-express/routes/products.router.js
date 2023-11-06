@@ -3,53 +3,64 @@ const ProductService = require('../services/product.service.js');
 const router = express.Router();
 const service = new ProductService();
 
-// http://localhost:3000?size=1
-router.get('/', (req, res) => {
-  const products = service.find();
-  res.json(products);
-});
-
-router.get('/filter', (req, res) => {
-  res.send('Nothing to filter yet');
-});
-
-// : is indicating that it will receive a parameter
-router.get('/:id', (req, res) => {
-  // const productId = req.params.id;
-  const { id } = req.params; // This syntax is saying that from all the properties of the object I just want id
-  // All parameters are sent as strings
-  if (id === '999') {
+router.get('/', async (req, res) => {
+  try {
+    const products = await service.getAllData();
+    res.json(products);
+  } catch (error) {
     res.status(404).json({
-      message: 'Not Found',
+      message: error.message,
     });
-  } else {
-    res.status(200).json({ id, name: 'test product', price: 0 });
   }
 });
 
-router.post('/', (req, res) => {
-  const body = req.body;
-  res.status(201).json({
-    message: 'New products created',
-    data: body,
-  });
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await service.findOne(id);
+    res.json(product);
+  } catch (error) {
+    res.status(404).json({
+      message: error.message,
+    });
+  }
 });
 
-router.patch('/:id', (req, res) => {
-  const { id } = req.params;
-  const body = req.body;
-  res.json({
-    message: 'Product updated successfully',
-    data: body,
-    id,
-  });
+router.post('/', async (req, res) => {
+  try {
+    const body = req.body;
+    const newProduct = await service.create(body);
+    res.status(201).json(newProduct);
+  } catch (error) {
+    res.status(404).json({
+      message: error.message,
+    });
+  }
 });
 
-router.delete('/:id', (req, res) => {
-  const { id } = req.params;
-  res.json({
-    message: 'Product deleted successfully',
-    id,
-  });
+router.patch('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const body = req.body;
+    const product = await service.update(id, body);
+    res.json(product);
+  } catch (error) {
+    res.status(404).json({
+      message: error.message,
+    });
+  }
 });
-http: module.exports = router;
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const ans = await service.delete(id);
+    res.json(ans);
+  } catch (error) {
+    res.status(404).json({
+      message: error.message,
+    });
+  }
+});
+
+module.exports = router;
