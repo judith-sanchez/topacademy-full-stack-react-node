@@ -1,19 +1,15 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const config = require('./config');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 const users = JSON.parse(fs.readFileSync('database.json'));
-console.log(`The users are ${JSON.stringify(users)}`);
 
 // JWT Configuration
 const jwtOptions = {
@@ -37,22 +33,15 @@ app.listen(8089, () => {
 });
 
 app.post('/login', (req, res) => {
-	console.log('Starting login');
 	const {username, password} = req.body;
-
 	const user = users.users.find(u => u.username === username);
 
-	console.log(`Password ${password}`);
-	console.log(`User Password ${user.password}`);
+	if (!user) {
+		return res.status(401).json({message: 'No such username'});
+	}
 
-	// if (!user || !bcrypt.compareSync(password, user.password)) {
-	// 	return res.status(401).json({message: 'Authentication failed'});
-	// }
-
-	console.log(`The user is ${JSON.stringify(user)}`);
-
-	if (!user || password !== user.password) {
-		return res.status(401).json({message: 'Authentication failed'});
+	if (password !== user.password) {
+		return res.status(401).json({message: 'Incorrect credentials'});
 	}
 
 	const token = jwt.sign({id: user.id}, config.secretKey, {
@@ -61,5 +50,21 @@ app.post('/login', (req, res) => {
 
 	console.log(`The token is ${token}`);
 
-	res.json({token});
+	res.status(200).json({token});
 });
+
+// Protected Endpoint
+app.get(
+	'/protected',
+	passport.authenticate('jwt', {session: false}),
+	(req, res) => {
+		const user = req.user;
+		res.json({message: `Hello ${user.username}, this is a secret message`});
+	},
+);
+
+// Get JWT
+// curl -X POST -H "Content-Type: application/json" -d '{"username":"judith", "password":"valencia123"}' http://localhost:8089/login
+
+// Show protected content
+// curl -X GET -H "Authorization: Bearer YOUR_JWT_TOKEN" http://localhost:8089/protected
