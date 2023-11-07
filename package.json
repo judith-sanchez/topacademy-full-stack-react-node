@@ -21,9 +21,12 @@
 		"prettier": "3.0.3"
 	},
 	"dependencies": {
+		"@hapi/boom": "^10.0.1",
 		"body-parser": "^1.20.2",
 		"color-flux-wizard": "^1.0.0",
+		"cors": "^2.8.5",
 		"express": "^4.18.2",
+		"joi": "^17.11.0",
 		"json-server": "^0.17.4",
 		"jsonwebtoken": "^9.0.2",
 		"node-fetch": "^3.3.2",
