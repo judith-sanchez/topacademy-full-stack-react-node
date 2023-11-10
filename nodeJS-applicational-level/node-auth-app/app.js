@@ -67,4 +67,4 @@ app.get(
 // curl -X POST -H "Content-Type: application/json" -d '{"username":"judith", "password":"valencia123"}' http://localhost:8089/login
 
 // Show protected content
-// curl -X GET -H "Authorization: Bearer YOUR_JWT_TOKEN" http://localhost:8089/protected
+// curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk5MzY2MDk3LCJleHAiOjE2OTkzNjk2OTd9.nTf0oZ0e3JLAoth3xokhUqCMAq5EHGPBPriETDGq4Eg" http://localhost:8089/protected
