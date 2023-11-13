@@ -2,7 +2,7 @@
 
 ## Weeks 1-6
 
-![Weeks 1-6](weeks1-6.jpeg)
+![Weeks 1-6](weeks1-6.jpeg) 
 
 [📁 Bash](bash-lesson)
 
