@@ -49,14 +49,18 @@ class WeatherForecast {
 			const url = `${this.baseUrl}${this.fiveDaysForecastUrl}${this.cityId}?apikey=${apiKey}&metric=true`;
 			const jsonData = await this.fetch(url);
 
-			this.fiveDaysForecast = jsonData.DailyForecasts.map(day => ({
-				date: day.Date,
-				icon: `https://developer.accuweather.com/sites/default/files/${day.Day.Icon}-s.png`,
-				iconPhrase: day.Day.IconPhrase,
-				temperatureUnit: day.Temperature.Maximum.Unit,
-				maxTemperature: day.Temperature.Maximum.Value,
-				minTemperature: day.Temperature.Minimum.Value,
-			}));
+			this.fiveDaysForecast = jsonData.DailyForecasts.map(day => {
+				const icon = day.Day.Icon.toString().padStart(2, '0');
+
+				return {
+					date: day.Date,
+					icon: `https://developer.accuweather.com/sites/default/files/${icon}-s.png`,
+					iconPhrase: day.Day.IconPhrase,
+					temperatureUnit: day.Temperature.Maximum.Unit,
+					maxTemperature: day.Temperature.Maximum.Value,
+					minTemperature: day.Temperature.Minimum.Value,
+				};
+			});
 
 			return this.fiveDaysForecast;
 		} catch (error) {
