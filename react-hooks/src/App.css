@@ -1,0 +1,125 @@
+/* lavender: cab1ed */
+/*darker lavender: 9f8ebb*/
+/* mint: aeecb1*/
+/*indigo: 4c4256*/
+
+:root {
+	background-color: #cab1ed;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.app {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 90%;
+}
+
+.forecast {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.day-card {
+	background-color: #aeecb1;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 20rem;
+	width: 12.5rem;
+	margin: 1rem;
+}
+
+.time-5 {
+	--c1: #673b14;
+	--c2: #f8b13b;
+	width: 40px;
+	height: 80px;
+	border-top: 4px solid var(--c1);
+	border-bottom: 4px solid var(--c1);
+	background: linear-gradient(
+			90deg,
+			var(--c1) 2px,
+			var(--c2) 0 5px,
+			var(--c1) 0
+		)
+		center/7px 8px no-repeat;
+	display: grid;
+	overflow: hidden;
+	animation: t5-0 2s infinite linear;
+}
+.time-5::before,
+.time-5::after {
+	content: '';
+	grid-area: 1/1;
+	width: 75%;
+	height: calc(50% - 4px);
+	margin: 0 auto;
+	border: 2px solid var(--c1);
+	border-top: 0;
+	border-radius: 0 0 40% 40%;
+	-webkit-mask:
+		linear-gradient(#000 0 0) bottom/4px 2px no-repeat,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: destination-out;
+	mask-composite: exclude;
+	background:
+		linear-gradient(var(--d, 0deg), var(--c2) 50%, #0000 0) bottom / 100% 205%,
+		linear-gradient(var(--c2) 0 0) center/0 100%;
+	background-repeat: no-repeat;
+	animation: inherit;
+	animation-name: t5-1;
+}
+
+.time-5::after {
+	transform-origin: 50% calc(100% + 2px);
+	transform: scaleY(-1);
+	--s: 3px;
+	--d: 180deg;
+}
+
+@keyframes t5-0 {
+	80% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(0.5turn);
+	}
+}
+
+@keyframes t5-1 {
+	10%,
+	70% {
+		background-size:
+			100% 205%,
+			var(--s, 0) 100%;
+	}
+	70%,
+	100% {
+		background-position: top, center;
+	}
+}
+
+/* body {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-auto-rows: 130px;
+	place-items: center;
+}
+
+* {
+	box-sizing: border-box;
+} */

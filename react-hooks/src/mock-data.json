@@ -1,0 +1,110 @@
+{
+	"forecasts": {
+		"caracas": [
+			{
+				"date": "2023-11-17T07:00:00-04:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/16-s.png",
+				"iconPhrase": "Mostly cloudy w/ t-storms",
+				"temperatureUnit": "C",
+				"maxTemperature": 30.3,
+				"minTemperature": 19.8
+			},
+			{
+				"date": "2023-11-18T07:00:00-04:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/12-s.png",
+				"iconPhrase": "Showers",
+				"temperatureUnit": "C",
+				"maxTemperature": 31.3,
+				"minTemperature": 19.6
+			},
+			{
+				"date": "2023-11-19T07:00:00-04:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/06-s.png",
+				"iconPhrase": "Mostly cloudy",
+				"temperatureUnit": "C",
+				"maxTemperature": 31.7,
+				"minTemperature": 19.2
+			},
+			{
+				"date": "2023-11-20T07:00:00-04:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/14-s.png",
+				"iconPhrase": "Partly sunny w/ showers",
+				"temperatureUnit": "C",
+				"maxTemperature": 31,
+				"minTemperature": 18.1
+			}
+		],
+		"turin": [
+			{
+				"date": "2023-11-17T07:00:00+01:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/14-s.png",
+				"iconPhrase": "Partly sunny w/ showers",
+				"temperatureUnit": "C",
+				"maxTemperature": 18.4,
+				"minTemperature": 3.7
+			},
+			{
+				"date": "2023-11-18T07:00:00+01:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/04-s.png",
+				"iconPhrase": "Intermittent clouds",
+				"temperatureUnit": "C",
+				"maxTemperature": 14.2,
+				"minTemperature": 3.6
+			},
+			{
+				"date": "2023-11-19T07:00:00+01:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/04-s.png",
+				"iconPhrase": "Intermittent clouds",
+				"temperatureUnit": "C",
+				"maxTemperature": 13.2,
+				"minTemperature": 3.7
+			}
+		],
+		"geulle": [
+			{
+				"date": "2023-11-17T07:00:00+01:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/13-s.png",
+				"iconPhrase": "Mostly cloudy w/ showers",
+				"temperatureUnit": "C",
+				"maxTemperature": 8.4,
+				"minTemperature": 3.6
+			},
+			{
+				"date": "2023-11-18T07:00:00+01:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/18-s.png",
+				"iconPhrase": "Rain",
+				"temperatureUnit": "C",
+				"maxTemperature": 9.5,
+				"minTemperature": 8.1
+			},
+			{
+				"date": "2023-11-19T07:00:00+01:00",
+				"icon": "https://developer.accuweather.com/sites/default/files/14-s.png",
+				"iconPhrase": "Partly sunny w/ showers",
+				"temperatureUnit": "C",
+				"maxTemperature": 12.7,
+				"minTemperature": 8.8
+			}
+		]
+	},
+	"cities": [
+		{
+			"id": "353020",
+			"name": "Caracas",
+			"administrativeArea": "Distrito Capital",
+			"country": "Venezuela"
+		},
+		{
+			"id": "214753",
+			"name": "Turin",
+			"administrativeArea": "Piedmont",
+			"country": "Italy"
+		},
+		{
+			"id": "248793",
+			"name": "Geulle",
+			"administrativeArea": "Limburg",
+			"country": "Netherlands"
+		}
+	]
+}

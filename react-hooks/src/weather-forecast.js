@@ -1,5 +1,3 @@
-// const API_KEY = 'bm8PaWeGGjegMuvPw5xVL1PYPSjhooXf';
-
 class WeatherForecast {
 	baseUrl = 'http://dataservice.accuweather.com/';
 	citySearchUrl = 'locations/v1/cities/search';
@@ -68,10 +66,5 @@ class WeatherForecast {
 		}
 	}
 }
-
-// const caracasWeatherForecast = new WeatherForecast(
-// 	'caracas venezuela',
-// 	API_KEY,
-// );
 
 export default WeatherForecast;

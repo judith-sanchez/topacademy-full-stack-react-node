@@ -2,15 +2,16 @@ import React, {useState} from 'react';
 
 function DayCard({forecast}) {
 	return (
-		<div>
+		<div className="day-card">
 			<p>{forecast.date}</p>
-			<p>{forecast.iconPhrase}</p>
 			<img
 				src={forecast.icon}
 				alt={`Weather icon for ${forecast.iconPhrase}`}
 			/>
+			<p>{forecast.iconPhrase}</p>
 			<p>
-				{forecast.maxTemperature}/{forecast.minTemperature}
+				<span className="max-temp">{forecast.maxTemperature}</span>/
+				{forecast.minTemperature}
 			</p>
 		</div>
 	);
