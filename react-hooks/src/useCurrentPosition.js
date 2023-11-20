@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 const useCurrentPosition = () => {
 	const [position, setPosition] = useState(undefined);
-	const [success, setSuccess] = useState(false);
+	const [success, setSuccess] = useState(undefined);
 	const [error, setError] = useState(undefined);
 
 	useEffect(() => {

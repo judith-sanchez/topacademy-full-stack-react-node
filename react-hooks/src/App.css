@@ -142,14 +142,3 @@
 		background-position: top, center;
 	}
 }
-
-/* body {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-auto-rows: 130px;
-	place-items: center;
-}
-
-* {
-	box-sizing: border-box;
-} */
