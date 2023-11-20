@@ -11,6 +11,8 @@ function App() {
 	const [fiveDaysForecast, setFiveDaysForecast] = useState(null);
 	const [location, setLocation] = useState(null);
 	const {position, success, error} = useCurrentPosition(); // Use the custom hook
+	// Test
+	const [permissionStatus, setPermissionStatus] = useState(null); // New state variable
 
 	useEffect(() => {
 		if (success) {
@@ -63,9 +65,6 @@ function App() {
 
 	return (
 		<div className="app">
-			<div className="hourglass-animation">
-				{/* {!success && !error && <div className="time-5"></div>} */}
-			</div>
 			{/* <input
 					type="text"
 					value={inputValue}
@@ -92,6 +91,9 @@ function App() {
 					))}
 			</div>
 			{error && <div>Error: {error.message}</div>}
+			<div className="hourglass-animation">
+				{!success && !error && <div className="time-5"></div>}
+			</div>
 		</div>
 	);
 }
