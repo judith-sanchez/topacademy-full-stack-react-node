@@ -61,7 +61,12 @@ function App() {
 								onChange={handleInputChange}
 								placeholder="Type city and country name"
 							/>
-							<button onClick={getFiveDaysForecast}>Search</button>
+							<button
+								onClick={getFiveDaysForecast}
+								style={{backgroundColor: inputValue ? '#aeecb1' : '#9f8ebb'}}
+							>
+								Search
+							</button>
 						</>
 					)}
 				</div>

@@ -1,8 +1,3 @@
-/* lavender: cab1ed */
-/*darker lavender: 9f8ebb*/
-/* mint: aeecb1*/
-/*indigo: 4c4256*/
-
 :root {
 	background-color: #cab1ed;
 	box-sizing: border-box;
@@ -22,6 +17,35 @@
 	justify-content: center;
 	align-items: center;
 	width: 90%;
+}
+
+.search-location {
+	align-items: center;
+	display: flex;
+	flex-flow: row wrap;
+	text-align: center;
+}
+
+.search-location input {
+	border-radius: 0.5rem;
+	height: 4rem;
+	margin-right: 5rem;
+	border: none;
+	width: 25rem;
+}
+
+.search-location button {
+	background-color: #9f8ebb;
+	border-radius: 0.5rem;
+	color: #4c4256;
+	height: 5rem;
+	border: none;
+	width: 10rem;
+	cursor: pointer;
+}
+
+.forecast-screen {
+	text-align: center;
 }
 
 .intro {
