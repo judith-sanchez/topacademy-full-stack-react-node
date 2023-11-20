@@ -78,9 +78,11 @@ function App() {
 				<button onClick={handleLocationClick} disabled={success}>
 					Get Location
 				</button> */}
-			<h1>How's the weather?</h1>
+			<h1 className="intro">How's the weather?</h1>
 			{success && (
-				<h3>{location && `${location.name}, ${location.country}`}</h3>
+				<h3 className="location">
+					{location && `${location.name}, ${location.country}`}
+				</h3>
 			)}
 			<div className="forecast">
 				{fiveDaysForecast &&
