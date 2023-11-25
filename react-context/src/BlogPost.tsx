@@ -1,5 +1,5 @@
 import blogPosts from './blogPosts.json';
-import { useComments } from './CommentsContext'; // Make sure to import useComments
+import { useComments } from './CommentsContext';
 
 import Comment from './Comment';
 import { useState } from 'react';
@@ -22,9 +22,10 @@ const Blog = () => {
           </div>
         ))}
       </div>
-      {blogComments.map((comment) => (
+      {blogComments?.map((comment) => (
         <Comment
-          key={comment.id} // Don't forget to add a key prop
+          key={comment.id}
+          commentId={comment.id}
           text={comment.text}
           username={comment.username}
           avatar={comment.avatar}

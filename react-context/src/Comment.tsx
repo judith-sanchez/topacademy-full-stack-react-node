@@ -1,14 +1,33 @@
 import useComment from './useComment';
 
-export default function Comment({ datePosted, username, avatar, text, votes }) {
-  const { addVote, subtractVote } = useComment();
+export default function Comment({
+  commentId,
+  datePosted,
+  username,
+  avatar,
+  text,
+  votes,
+}) {
+  const { addVote, subtractVote } = useComment(commentId);
 
   return (
     <div className="comments">
       <div className="votes-container">
-        <button onClick={addVote}>👍🏻</button>
+        <button
+          onClick={() => {
+            addVote();
+          }}
+        >
+          👍🏻
+        </button>
         <p>{votes}</p>
-        <button onClick={subtractVote}>👎🏻</button>
+        <button
+          onClick={() => {
+            subtractVote();
+          }}
+        >
+          👎🏻
+        </button>
       </div>
       <div className="comment-container">
         <div>
