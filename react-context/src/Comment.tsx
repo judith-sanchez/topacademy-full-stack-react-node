@@ -1,14 +1,24 @@
-import useComment from './useComment';
+import React from 'react';
+import useComment, { CommentActions } from './useComment';
 
-export default function Comment({
+interface CommentProps {
+  commentId: number;
+  datePosted: string;
+  username: string;
+  avatar: string;
+  text: string;
+  votes: number;
+}
+
+const Comment: React.FC<CommentProps> = ({
   commentId,
   datePosted,
   username,
   avatar,
   text,
   votes,
-}) {
-  const { addVote, subtractVote, editComment, deleteComment } =
+}: CommentProps) => {
+  const { addVote, subtractVote, editComment, deleteComment }: CommentActions =
     useComment(commentId);
 
   return (
@@ -55,4 +65,6 @@ export default function Comment({
       </div>
     </div>
   );
-}
+};
+
+export default Comment;

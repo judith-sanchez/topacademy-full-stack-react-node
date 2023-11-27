@@ -1,7 +1,16 @@
 import { useContext } from 'react';
 import { CommentsContext } from './CommentsContext';
 
-const useComment = (commentId) => {
+interface CommentHook {
+  votes: number;
+  text: string;
+  addVote: () => void;
+  subtractVote: () => void;
+  editComment: (newText: string) => void;
+  deleteComment: () => void;
+}
+
+const useComment = (commentId: number): CommentHook => {
   const { comments, addVote, subtractVote, editComment, deleteComment } =
     useContext(CommentsContext);
   const comment = comments?.find((c) => c.id === commentId);
@@ -15,7 +24,7 @@ const useComment = (commentId) => {
     text: comment.text,
     addVote: () => addVote(commentId),
     subtractVote: () => subtractVote(commentId),
-    editComment: (newText) => editComment(commentId, newText),
+    editComment: (newText: string) => editComment(commentId, newText),
     deleteComment: () => deleteComment(commentId),
   };
 };
