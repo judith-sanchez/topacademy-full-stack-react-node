@@ -1,6 +1,8 @@
 import BlogPost from './BlogPost';
 import { CommentsProvider } from './CommentsContext';
 
+import './styles/App.css';
+
 const App: React.FC = () => {
   // To help TS understand that it is a functional component
   return (

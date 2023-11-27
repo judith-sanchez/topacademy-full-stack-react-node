@@ -1,5 +1,6 @@
 import React from 'react';
 import useComment, { CommentActions } from './useComment';
+import styles from './styles/Comment.module.css';
 
 interface CommentProps {
   commentId: number;
@@ -22,8 +23,8 @@ const Comment: React.FC<CommentProps> = ({
     useComment(commentId);
 
   return (
-    <div className="comments">
-      <div className="votes-container">
+    <div className={styles.mainContainer}>
+      <div className={styles.votes}>
         <button
           onClick={() => {
             addVote();
@@ -40,8 +41,8 @@ const Comment: React.FC<CommentProps> = ({
           👎🏻
         </button>
       </div>
-      <div className="comment-container">
-        <div>
+      <div className={styles.secondaryContainer}>
+        <div className={styles.infoAndFunctionalities}>
           <p>{avatar}</p>
           <p>{username}</p>
           <p>{datePosted}</p>

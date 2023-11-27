@@ -1,0 +1,26 @@
+.mainContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1.6rem;
+  background-color: aquamarine;
+  margin: 1.5rem auto;
+  width: 75%;
+}
+
+.votes {
+  align-items: center;
+  background-color: aqua;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.secondaryContainer {
+  background-color: bisque;
+}
+
+.infoAndFunctionalities {
+  background-color: crimson;
+  display: flex;
+  flex-flow: row nowrap;
+}
