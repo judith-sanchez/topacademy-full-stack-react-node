@@ -8,7 +8,8 @@ export default function Comment({
   text,
   votes,
 }) {
-  const { addVote, subtractVote } = useComment(commentId);
+  const { addVote, subtractVote, editComment, deleteComment } =
+    useComment(commentId);
 
   return (
     <div className="comments">
@@ -34,6 +35,20 @@ export default function Comment({
           <p>{avatar}</p>
           <p>{username}</p>
           <p>{datePosted}</p>
+          <button
+            onClick={() => {
+              editComment();
+            }}
+          >
+            ✏️
+          </button>
+          <button
+            onClick={() => {
+              deleteComment();
+            }}
+          >
+            🗑️
+          </button>
           <button>💬</button>
         </div>
         <p>{text}</p>

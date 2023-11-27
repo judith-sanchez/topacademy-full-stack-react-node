@@ -30,8 +30,24 @@ function CommentsProvider({ children }) {
     });
   };
 
+  const editComment = (commentId, newText) => {
+    setComments((prevComments) => {
+      return prevComments.map((comment) =>
+        comment.id === commentId ? { ...comment, text: newText } : comment
+      );
+    });
+  };
+
+  const deleteComment = (commentId) => {
+    setComments((prevComments) =>
+      prevComments.filter((comment) => comment.id !== commentId)
+    );
+  };
+
   return (
-    <CommentsContext.Provider value={{ comments, addVote, subtractVote }}>
+    <CommentsContext.Provider
+      value={{ comments, addVote, subtractVote, editComment, deleteComment }}
+    >
       {children}
     </CommentsContext.Provider>
   );
