@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import mockComments from './mockComments.json';
 
-// Create an instance of the React's object context
 const CommentsContext = React.createContext();
 
 function CommentsProvider({ children }) {
-  // This object holds all the information I want the children component to have access to.
   const [comments, setComments] = useState(null);
 
   useEffect(() => {
     setComments(mockComments);
   }, []);
 
-  // This context provider will hold other components on the App.js file
-  // All the components wrapped on this one will be able to access the auth object as long as the context itself is also imported
+  const addVote = (commentId) => {
+    setComments((prevComments) => {
+      return prevComments.map((comment) =>
+        comment.id === commentId
+          ? { ...comment, votes: comment.votes + 1 }
+          : comment
+      );
+    });
+  };
+
+  const subtractVote = (commentId) => {
+    setComments((prevComments) => {
+      return prevComments.map((comment) =>
+        comment.id === commentId
+          ? { ...comment, votes: comment.votes - 1 }
+          : comment
+      );
+    });
+  };
+
   return (
-    <CommentsContext.Provider value={comments}>
+    <CommentsContext.Provider value={{ comments, addVote, subtractVote }}>
       {children}
     </CommentsContext.Provider>
   );
 }
 
-// React Hook
-// This is how the other components will be able to consume the information inside the created context
-
 function useComments() {
-  const comments = React.useContext(CommentsContext);
-  return comments;
+  const context = React.useContext(CommentsContext);
+  if (!context) {
+    throw new Error('useComments must be used within a CommentsProvider');
+  }
+  return context.comments;
 }
 
-// So other components can import it
 export { CommentsProvider, useComments, CommentsContext };
