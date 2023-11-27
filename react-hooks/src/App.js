@@ -1,15 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import WeatherForecast from '../src/weather-forecast';
 import DayCard from './DayCard.js';
+import useCurrentDay from './useCurrentDay.js';
 import useCurrentPosition from './useCurrentPosition';
+
 import './App.css';
 
 const API_KEY = 'uVVIZGF8tdCcLqegcfsyNfpv4xMdT7Qp';
 
 function App() {
+	const isWeekDay = useCurrentDay();
+	console.log(isWeekDay);
 	const [inputValue, setInputValue] = useState('');
 	const [fiveDaysForecast, setFiveDaysForecast] = useState(null);
 	const [location, setLocation] = useState(null);
+	// position, success, and error are not directly managed as React state variables in the App component, they are variables that hold the values extracted from the state managed by the useCurrentPosition hook.
+	// The hook encapsulates the logic related to geolocation and provides these values to the component that uses it.
 	const {position, success, error} = useCurrentPosition();
 
 	useEffect(() => {
