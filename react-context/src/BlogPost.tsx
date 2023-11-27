@@ -1,4 +1,4 @@
-import React from 'react';
+import {ReactComponentElement, useState} from 'react';
 import blogPosts from './blogPosts.json';
 import {useComments, Comment as CommentType} from './CommentsContext';
 import styles from './styles/BlogPost.module.css';
@@ -15,6 +15,8 @@ interface BlogPost {
 }
 
 const Blog: React.FC = () => {
+	const [loggedUser, setLoggedUser] = useState('yuyi'); // this should have its own context
+
 	const blogComments: CommentType[] = useComments();
 
 	return (
@@ -39,8 +41,9 @@ const Blog: React.FC = () => {
 					text={comment.text}
 					username={comment.username}
 					avatar={comment.avatar}
-					datePosted={comment.date}
+					datePosted={comment.datePosted}
 					votes={comment.votes}
+					loggedUser={loggedUser}
 				/>
 			))}
 		</>
