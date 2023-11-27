@@ -44,6 +44,8 @@ const Blog: React.FC = () => {
 					datePosted={comment.datePosted}
 					votes={comment.votes}
 					loggedUser={loggedUser}
+					replies={comment.replies}
+					parentId={comment.parentId}
 				/>
 			))}
 		</>
