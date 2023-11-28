@@ -1,0 +1,22 @@
+.form {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	margin: 2rem auto;
+	width: 78%;
+}
+
+textarea {
+	height: 10rem;
+}
+
+.sendButton {
+	align-self: center;
+	color: white;
+	background-color: darkblue;
+	border-radius: 2rem;
+	font-size: 2rem;
+	height: 5rem;
+	margin: 2rem;
+	width: 10rem;
+}

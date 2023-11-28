@@ -3,6 +3,8 @@ import {useContext} from 'react';
 
 import {CommentsContext} from './CommentsContext';
 
+import styles from './styles/AddComment.module.css';
+
 interface AddCommentProps {
 	parentId?: string | null; // Pass parentId if it's a reply to a comment
 }
@@ -25,13 +27,15 @@ const AddComment: React.FC<AddCommentProps> = ({parentId}) => {
 	};
 
 	return (
-		<div>
+		<div className={styles.form}>
 			<textarea
 				placeholder="Write your comment..."
 				value={newCommentText}
 				onChange={e => setNewCommentText(e.target.value)}
 			/>
-			<button onClick={handleAddComment}>Add Comment</button>
+			<button className={styles.sendButton} onClick={handleAddComment}>
+				Send
+			</button>
 		</div>
 	);
 };
