@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {formatDistanceToNow, parseISO} from 'date-fns';
-// import useComment, {CommentActions} from './useComment';
 import {useContext} from 'react';
 import {CommentsContext} from './CommentsContext';
 import styles from './styles/Comment.module.css';
@@ -13,7 +12,7 @@ interface CommentProps {
 	avatar: string;
 	text: string;
 	votes: number;
-	loggedUser: string;
+	// loggedUser: string;
 }
 
 const Comment: React.FC<CommentProps> = ({
@@ -23,14 +22,14 @@ const Comment: React.FC<CommentProps> = ({
 	avatar,
 	text,
 	votes,
-	parentId,
-	loggedUser,
+	parentId, // loggedUser,
 }: CommentProps) => {
-	// const {addVote, subtractVote, editComment, deleteComment}: CommentActions =
-	// 	useComment(commentId);
+	// useEffect((console.log(`The comment ${commentId} has ${} children`)), []);
+
 	const commentsContext = useContext(CommentsContext); // Use CommentsContext directly
 
 	const {
+		loggedUser,
 		comments,
 		addVote,
 		subtractVote,
@@ -45,7 +44,7 @@ const Comment: React.FC<CommentProps> = ({
 		throw new Error('Comment not found');
 	}
 
-	const isAuthor = username === loggedUser;
+	const isAuthor = username === loggedUser.username;
 
 	const timeAgo = formatDistanceToNow(parseISO(datePosted), {addSuffix: true});
 

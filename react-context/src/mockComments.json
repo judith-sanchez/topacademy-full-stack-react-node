@@ -1,73 +1,136 @@
 [
 	{
+		"id": "00",
 		"username": "codeexplorer42",
 		"avatar": "👩🏻‍💻",
 		"text": "😂 JavaScript, the land where even callbacks have callbacks! Navigating the callback pyramid is like trying to escape a maze designed by mischievous wizards. #JavaScriptAdventures 🧙‍♂️🤣",
 		"votes": 8,
-		"id": "0",
 		"datePosted": "2023-01-15T15:45:00.000Z",
-		"parentID": null,
+		"parentID": "main",
 		"replies": [
 			{
+				"id": "11",
 				"username": "yuyi",
 				"avatar": "🤪",
 				"text": "🤪 Oh, JavaScript, the only place where you get paid for solving puzzles! It's like being a detective in the coding world. 🔍💻 #JavaScriptDetective 🕵️‍♂️",
 				"votes": 5,
-				"id": "11",
 				"datePosted": "2023-01-15T15:45:00.000Z",
-				"parentID": "0",
+				"parentID": "00",
+				"replies": [
+					{
+						"id": "111",
+						"username": "detectiveCoder",
+						"avatar": "🕵️‍♂️",
+						"text": "🕵️‍♂️ Solving JavaScript mysteries is both thrilling and challenging! Embracing the quirks makes us true coding detectives. 🔐💻 #CodeSleuths 🧩",
+						"votes": 3,
+						"datePosted": "2023-01-16T09:30:00.000Z",
+						"parentID": "11",
+						"replies": []
+					}
+				]
+			},
+			{
+				"id": "112",
+				"username": "quirkyCoder",
+				"avatar": "😜",
+				"text": "😜 Absolutely! JavaScript's quirks are like puzzles waiting to be solved. It's the journey that makes coding so exciting! 🚀🧩 #CodingAdventure",
+				"votes": 2,
+				"datePosted": "2023-01-16T10:15:00.000Z",
+				"parentID": "00",
 				"replies": []
 			}
 		]
 	},
 	{
+		"id": "10",
 		"username": "yuyi",
 		"avatar": "🤪",
 		"text": "🤪 Embracing the callbackception! It's like a never-ending story, but with more curly braces. #JavaScriptInfinity 🔗🔄",
 		"votes": 3,
-		"id": "10",
 		"datePosted": "2023-03-20T10:30:00.000Z",
-		"parentID": null,
-		"replies": []
+		"parentID": "main",
+		"replies": [
+			{
+				"id": "101",
+				"username": "infinityCoder",
+				"avatar": "🌀",
+				"text": "🌀 JavaScript's infinity of callbacks is like a mesmerizing dance! Let's keep twirling through the code! 💃💻 #CodingTwirl",
+				"votes": 4,
+				"datePosted": "2023-03-20T12:00:00.000Z",
+				"parentID": "10",
+				"replies": []
+			},
+			{
+				"id": "102",
+				"username": "loopMaster",
+				"avatar": "🔄",
+				"text": "🔄 Loops within loops, a true callbackception! Embrace the circular rhythm of JavaScript. 🎶💻 #LoopHarmony",
+				"votes": 1,
+				"datePosted": "2023-03-20T13:45:00.000Z",
+				"parentID": "10",
+				"replies": []
+			}
+		]
 	},
 	{
+		"id": "01",
 		"username": "techsorcerer",
 		"avatar": "🧙🏽",
 		"text": "🤯 \"this\" in JavaScript is like a shape-shifter playing hide-and-seek. Coding sorcery thwarted by a mischievous \"this\"! Who else feels the struggle? 🧐 #JavaScriptMagic 🚀",
 		"votes": 0,
-		"id": "01",
 		"datePosted": "2023-05-05T18:15:00.000Z",
-		"parentID": null,
-		"replies": []
+		"parentID": "main",
+		"replies": [
+			{
+				"id": "011",
+				"username": "sorceryCoder",
+				"avatar": "🔮",
+				"text": "🔮 Mastering the art of 'this' is like wielding a powerful spell in JavaScript sorcery! Let's enchant our code together. ✨💻 #CodeEnchantment",
+				"votes": 2,
+				"datePosted": "2023-05-06T10:30:00.000Z",
+				"parentID": "01",
+				"replies": []
+			},
+			{
+				"id": "012",
+				"username": "magicWanderer",
+				"avatar": "🌌",
+				"text": "🌌 Exploring the mystical realms of 'this' in JavaScript—where every click unveils a new enchantment! ✨🖱️ #JavaScriptEnigma",
+				"votes": 3,
+				"datePosted": "2023-05-06T12:15:00.000Z",
+				"parentID": "01",
+				"replies": []
+			}
+		]
 	},
 	{
+		"id": "02",
 		"username": "nanmastermind",
 		"avatar": "🤖",
 		"text": "🐱‍👤 Successfully outsmarted the NaN monster, or did it outsmart us? The whimsical dance of JavaScript equality is a real head-scratcher. #JavaScriptConfusion 💃🤔",
 		"votes": 0,
-		"id": "02",
 		"datePosted": "2023-07-10T08:45:00.000Z",
-		"parentID": null,
+		"parentID": "main",
 		"replies": []
 	},
 	{
+		"id": "03",
 		"username": "temporalghost",
 		"avatar": "👻",
 		"text": "👻 Ghostly apparitions in the Temporal Dead Zone? JavaScript, the haunted forest of undeclared variables! 👻🌲 #JavaScriptSpooks 🕰️",
 		"votes": 0,
-		"id": "03",
 		"datePosted": "2023-09-18T22:00:00.000Z",
-		"parentID": null,
+		"parentID": "main",
 		"replies": []
 	},
 	{
+		"id": "04",
 		"username": "timewarpnavigator",
 		"avatar": "🚀",
 		"text": "⏳ Time travel with JavaScript arithmetic? Brace for a warp in the space-time continuum! Who knew code could be so unpredictable? 🌀🚀 #JavaScriptTimeWarp ⌛",
 		"votes": 0,
-		"id": "04",
 		"datePosted": "2023-11-01T12:00:00.000Z",
-		"parentID": null,
+		"parentID": "main",
 		"replies": []
 	}
 ]

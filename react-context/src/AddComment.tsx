@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import {useContext} from 'react';
-
 import {CommentsContext} from './CommentsContext';
-
 import styles from './styles/AddComment.module.css';
 
 interface AddCommentProps {
-	parentId?: string | null; // Pass parentId if it's a reply to a comment
+	parentId?: string | 'main'; // Pass parentId if it's a reply to a comment
 }
 
 const AddComment: React.FC<AddCommentProps> = ({parentId}) => {

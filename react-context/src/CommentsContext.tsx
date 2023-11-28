@@ -23,7 +23,8 @@ interface Comment {
 }
 
 interface CommentsContextValue {
-	comments: Comment[] | null; // It can be eiter an array of instances of the Comment object or null
+	loggedUser: {username: string; avatar: string}; // Corrected the object syntax
+	comments: Comment[] | null; // It can be either an array of instances of the Comment object or null
 	addVote: (commentId: string) => void;
 	subtractVote: (commentId: string) => void;
 	addComment: (commentId: string, newText: string) => void;
@@ -111,6 +112,7 @@ function CommentsProvider({children}: {children: React.ReactNode}) {
 	return (
 		<CommentsContext.Provider
 			value={{
+				loggedUser,
 				comments,
 				addVote,
 				subtractVote,
