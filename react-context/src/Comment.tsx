@@ -1,6 +1,8 @@
 import React from 'react';
 import {formatDistanceToNow, parseISO} from 'date-fns';
-import useComment, {CommentActions} from './useComment';
+// import useComment, {CommentActions} from './useComment';
+import {useContext} from 'react';
+import {CommentsContext} from './CommentsContext';
 import styles from './styles/Comment.module.css';
 
 interface CommentProps {
@@ -11,7 +13,6 @@ interface CommentProps {
 	avatar: string;
 	text: string;
 	votes: number;
-	replies?: CommentProps[]; // Include replies prop
 	loggedUser: string;
 }
 
@@ -23,11 +24,26 @@ const Comment: React.FC<CommentProps> = ({
 	text,
 	votes,
 	parentId,
-	replies = [], // Default to an empty array
 	loggedUser,
 }: CommentProps) => {
-	const {addVote, subtractVote, editComment, deleteComment}: CommentActions =
-		useComment(commentId, parentId);
+	// const {addVote, subtractVote, editComment, deleteComment}: CommentActions =
+	// 	useComment(commentId);
+	const commentsContext = useContext(CommentsContext); // Use CommentsContext directly
+
+	const {
+		comments,
+		addVote,
+		subtractVote,
+		editComment,
+		deleteComment,
+		addComment, // Include the new function in your hook
+	} = useContext(CommentsContext);
+
+	const comment = comments?.find(c => c.id === commentId);
+
+	if (!comment) {
+		throw new Error('Comment not found');
+	}
 
 	const isAuthor = username === loggedUser;
 
@@ -38,7 +54,7 @@ const Comment: React.FC<CommentProps> = ({
 			<div className={styles.votes}>
 				<button
 					onClick={() => {
-						addVote();
+						addVote(commentId);
 					}}
 				>
 					👍🏻
@@ -46,7 +62,7 @@ const Comment: React.FC<CommentProps> = ({
 				<p>{votes}</p>
 				<button
 					onClick={() => {
-						subtractVote();
+						subtractVote(commentId);
 					}}
 				>
 					👎🏻
@@ -67,14 +83,14 @@ const Comment: React.FC<CommentProps> = ({
 							<>
 								<button
 									onClick={() => {
-										editComment();
+										editComment(commentId);
 									}}
 								>
 									✏️
 								</button>
 								<button
 									onClick={() => {
-										deleteComment();
+										deleteComment(commentId);
 									}}
 								>
 									🗑️
@@ -85,24 +101,6 @@ const Comment: React.FC<CommentProps> = ({
 					</div>
 				</div>
 				<p>{text}</p>
-				{/* Recursive rendering of replies */}
-				{replies.length > 0 && (
-					<div className={styles.replies}>
-						{replies.map(reply => (
-							<Comment
-								key={reply.commentId} // Ensure a unique key
-								commentId={reply.commentId}
-								datePosted={reply.datePosted}
-								username={reply.username}
-								avatar={reply.avatar}
-								text={reply.text}
-								votes={reply.votes}
-								loggedUser={loggedUser}
-								replies={reply.replies}
-							/>
-						))}
-					</div>
-				)}
 			</div>
 		</div>
 	);

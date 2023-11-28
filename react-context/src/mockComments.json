@@ -35,7 +35,7 @@
 		"avatar": "🧙🏽",
 		"text": "🤯 \"this\" in JavaScript is like a shape-shifter playing hide-and-seek. Coding sorcery thwarted by a mischievous \"this\"! Who else feels the struggle? 🧐 #JavaScriptMagic 🚀",
 		"votes": 0,
-		"id": "1",
+		"id": "01",
 		"datePosted": "2023-05-05T18:15:00.000Z",
 		"parentID": null,
 		"replies": []
@@ -45,7 +45,7 @@
 		"avatar": "🤖",
 		"text": "🐱‍👤 Successfully outsmarted the NaN monster, or did it outsmart us? The whimsical dance of JavaScript equality is a real head-scratcher. #JavaScriptConfusion 💃🤔",
 		"votes": 0,
-		"id": "2",
+		"id": "02",
 		"datePosted": "2023-07-10T08:45:00.000Z",
 		"parentID": null,
 		"replies": []
@@ -55,7 +55,7 @@
 		"avatar": "👻",
 		"text": "👻 Ghostly apparitions in the Temporal Dead Zone? JavaScript, the haunted forest of undeclared variables! 👻🌲 #JavaScriptSpooks 🕰️",
 		"votes": 0,
-		"id": "3",
+		"id": "03",
 		"datePosted": "2023-09-18T22:00:00.000Z",
 		"parentID": null,
 		"replies": []
@@ -65,7 +65,7 @@
 		"avatar": "🚀",
 		"text": "⏳ Time travel with JavaScript arithmetic? Brace for a warp in the space-time continuum! Who knew code could be so unpredictable? 🌀🚀 #JavaScriptTimeWarp ⌛",
 		"votes": 0,
-		"id": "4",
+		"id": "04",
 		"datePosted": "2023-11-01T12:00:00.000Z",
 		"parentID": null,
 		"replies": []

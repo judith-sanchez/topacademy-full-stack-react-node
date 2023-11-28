@@ -1,6 +1,7 @@
 import {ReactComponentElement, useState} from 'react';
 import blogPosts from './blogPosts.json';
 import {useComments, Comment as CommentType} from './CommentsContext';
+import AddComment from './AddComment.tsx';
 import styles from './styles/BlogPost.module.css';
 
 import Comment from './Comment';
@@ -44,10 +45,10 @@ const Blog: React.FC = () => {
 					datePosted={comment.datePosted}
 					votes={comment.votes}
 					loggedUser={loggedUser}
-					replies={comment.replies}
 					parentId={comment.parentId}
 				/>
 			))}
+			<AddComment />
 		</>
 	);
 };
