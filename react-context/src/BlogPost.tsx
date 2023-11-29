@@ -16,8 +16,6 @@ interface BlogPost {
 }
 
 const Blog: React.FC = () => {
-	const [loggedUser, setLoggedUser] = useState('yuyi'); // this should have its own context
-
 	const blogComments: CommentType[] = useComments();
 
 	return (
@@ -35,6 +33,7 @@ const Blog: React.FC = () => {
 					</div>
 				))}
 			</div>
+			{/* I think it makes more sense just passin the whole object */}
 			{blogComments?.map(comment => (
 				<Comment
 					key={comment.id}
@@ -44,8 +43,8 @@ const Blog: React.FC = () => {
 					avatar={comment.avatar}
 					datePosted={comment.datePosted}
 					votes={comment.votes}
-					loggedUser={loggedUser}
 					parentId={comment.parentId}
+					replies={comment.replies}
 				/>
 			))}
 			<AddComment />

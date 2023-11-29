@@ -12,7 +12,7 @@ interface CommentProps {
 	avatar: string;
 	text: string;
 	votes: number;
-	// loggedUser: string;
+	replies: Comment[];
 }
 
 const Comment: React.FC<CommentProps> = ({
@@ -22,10 +22,9 @@ const Comment: React.FC<CommentProps> = ({
 	avatar,
 	text,
 	votes,
-	parentId, // loggedUser,
+	parentId,
+	replies,
 }: CommentProps) => {
-	// useEffect((console.log(`The comment ${commentId} has ${} children`)), []);
-
 	const commentsContext = useContext(CommentsContext); // Use CommentsContext directly
 
 	const {
@@ -49,59 +48,61 @@ const Comment: React.FC<CommentProps> = ({
 	const timeAgo = formatDistanceToNow(parseISO(datePosted), {addSuffix: true});
 
 	return (
-		<div className={styles.mainContainer}>
-			<div className={styles.votes}>
-				<button
-					onClick={() => {
-						addVote(commentId);
-					}}
-				>
-					👍🏻
-				</button>
-				<p>{votes}</p>
-				<button
-					onClick={() => {
-						subtractVote(commentId);
-					}}
-				>
-					👎🏻
-				</button>
-			</div>
-			<div className={styles.secondaryContainer}>
-				<div className={styles.infoAndFunctionalities}>
-					<div className={styles.postInfo}>
-						<div className={styles.avatar}>
-							<p>{avatar}</p>
-						</div>
-
-						<p className={styles.username}>{username}</p>
-						<p className={styles.datePosted}>{timeAgo}</p>
-					</div>
-					<div className={styles.functionalities}>
-						{isAuthor && (
-							<>
-								<button
-									onClick={() => {
-										editComment(commentId);
-									}}
-								>
-									✏️
-								</button>
-								<button
-									onClick={() => {
-										deleteComment(commentId);
-									}}
-								>
-									🗑️
-								</button>
-							</>
-						)}
-						{!isAuthor && <button className={styles.reply}>↩️ Reply</button>}
-					</div>
+		<>
+			<div className={styles.mainContainer}>
+				<div className={styles.votes}>
+					<button
+						onClick={() => {
+							addVote(commentId);
+						}}
+					>
+						👍🏻
+					</button>
+					<p>{votes}</p>
+					<button
+						onClick={() => {
+							subtractVote(commentId);
+						}}
+					>
+						👎🏻
+					</button>
 				</div>
-				<p>{text}</p>
+				<div className={styles.secondaryContainer}>
+					<div className={styles.infoAndFunctionalities}>
+						<div className={styles.postInfo}>
+							<div className={styles.avatar}>
+								<p>{avatar}</p>
+							</div>
+
+							<p className={styles.username}>{username}</p>
+							<p className={styles.datePosted}>{timeAgo}</p>
+						</div>
+						<div className={styles.functionalities}>
+							{isAuthor && (
+								<>
+									<button
+										onClick={() => {
+											editComment(commentId);
+										}}
+									>
+										✏️
+									</button>
+									<button
+										onClick={() => {
+											deleteComment(commentId);
+										}}
+									>
+										🗑️
+									</button>
+								</>
+							)}
+							{!isAuthor && <button className={styles.reply}>↩️ Reply</button>}
+						</div>
+					</div>
+					<p>{text}</p>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

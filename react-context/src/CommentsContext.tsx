@@ -46,7 +46,7 @@ function CommentsProvider({children}: {children: React.ReactNode}) {
 	});
 
 	useEffect(() => {
-		setComments(mockComments as Comment[]);
+		setComments(mockComments);
 	}, []); // So comments are shown on the initial render
 
 	// Voting logic
