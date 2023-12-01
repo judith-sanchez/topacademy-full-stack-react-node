@@ -8,33 +8,52 @@ interface ButtonProps {
 
 const Button = styled.button<ButtonProps>`
 	${props => {
+		let baseStyles = css`
+			color: white;
+			display: inline-block; /* Set the default display to inline-block */
+		`;
+
 		switch (props.variation) {
 			case 'primary':
-				return css`
+				baseStyles = css`
 					background-color: ${theme.colors.primary};
-					color: white;
+					${baseStyles}
 				`;
+				break;
 			case 'secondary':
-				return css`
+				baseStyles = css`
 					background-color: ${theme.colors.secondary};
-					color: white;
+					${baseStyles}
 				`;
+				break;
 			case 'accent':
-				return css`
+				baseStyles = css`
 					background-color: ${theme.colors.accent};
-					color: white;
+					${baseStyles}
 				`;
+				break;
 			case 'background':
-				return css`
+				baseStyles = css`
 					background-color: ${theme.colors.background};
-					color: white;
+					${baseStyles}
 				`;
+				break;
 			case 'highlight':
-				return css`
+				baseStyles = css`
 					background-color: ${theme.colors.highlight};
-					color: white;
+					${baseStyles}
 				`;
+				break;
 		}
+
+		return css`
+			${baseStyles}
+			${props.fullWidth &&
+			css`
+				width: 100%;
+				display: block;
+			`} /* Override display for fullWidth */
+		`;
 	}}
 `;
 
