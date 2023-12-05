@@ -116,9 +116,9 @@ function CommentsProvider({children}: {children: React.ReactNode}) {
 				comments,
 				addVote,
 				subtractVote,
-				editComment,
 				deleteComment,
 				addComment,
+				editComment,
 			}}
 		>
 			{children}

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {formatDistanceToNow, parseISO} from 'date-fns';
 import {useContext} from 'react';
 import {CommentsContext} from './CommentsContext';
@@ -47,6 +47,9 @@ const Comment: React.FC<CommentProps> = ({
 
 	const timeAgo = formatDistanceToNow(parseISO(datePosted), {addSuffix: true});
 
+	const [isEditing, setIsEditing] = useState(false);
+	const [editedText, setEditedText] = useState(text);
+
 	return (
 		<>
 			<div className={styles.mainContainer}>
@@ -78,11 +81,11 @@ const Comment: React.FC<CommentProps> = ({
 							<p className={styles.datePosted}>{timeAgo}</p>
 						</div>
 						<div className={styles.functionalities}>
-							{isAuthor && (
+							{isAuthor && !isEditing && (
 								<>
 									<button
 										onClick={() => {
-											editComment(commentId);
+											setIsEditing(true);
 										}}
 									>
 										✏️
@@ -99,7 +102,31 @@ const Comment: React.FC<CommentProps> = ({
 							{!isAuthor && <button className={styles.reply}>↩️ Reply</button>}
 						</div>
 					</div>
-					<p>{text}</p>
+					{isEditing ? (
+						<div className={styles.editForm}>
+							<textarea
+								value={editedText}
+								onChange={e => setEditedText(e.target.value)}
+							/>
+							<button
+								onClick={() => {
+									editComment(commentId, editedText);
+									setIsEditing(false);
+								}}
+							>
+								Save
+							</button>
+							<button
+								onClick={() => {
+									setIsEditing(!isEditing);
+								}}
+							>
+								✏️
+							</button>
+						</div>
+					) : (
+						<p>{text}</p>
+					)}
 				</div>
 			</div>
 		</>
