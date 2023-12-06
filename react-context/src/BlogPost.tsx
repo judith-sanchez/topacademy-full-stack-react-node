@@ -3,6 +3,7 @@ import blogPosts from './blogPosts.json';
 import {useComments, Comment as CommentType} from './CommentsContext';
 import AddComment from './AddComment.tsx';
 import styles from './styles/BlogPost.module.css';
+import {useMyContext} from './NewContext.tsx';
 
 import Comment from './Comment';
 
@@ -17,6 +18,10 @@ interface BlogPost {
 
 const Blog: React.FC = () => {
 	const blogComments: CommentType[] = useComments();
+	const myContext = useMyContext();
+
+	const user = myContext.user;
+	console.log(user);
 
 	return (
 		<>
