@@ -37,6 +37,8 @@ const Tile = () => {
 
 	return (
 		<TileContainer
+			// So the test can identify it
+			data-testid="tile-container"
 			onClick={handleTileClick}
 			style={{backgroundColor: tileColor}}
 		>
